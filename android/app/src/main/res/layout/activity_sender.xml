@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app"
+    android:keepScreenOn="true">
+
+
+    <View android:layout_width="320dp" android:layout_height="320dp"
+        android:layout_gravity="top|end" android:layout_marginTop="-90dp" android:layout_marginEnd="-100dp"
+        android:background="@drawable/bg_blob_purple" />
+    <View android:layout_width="360dp" android:layout_height="360dp"
+        android:layout_gravity="bottom|start" android:layout_marginBottom="-120dp" android:layout_marginStart="-120dp"
+        android:background="@drawable/bg_blob_cyan" />
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="20dp">
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="🎵  فرستنده" android:textColor="#FFFFFF"
+                android:textSize="28sp" android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp"
+                android:background="@drawable/bg_glass">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnPickSong"
+                    android:layout_width="match_parent" android:layout_height="56dp"
+                    android:text="انتخاب آهنگ" android:textColor="#FFFFFF"
+                    android:textSize="18sp" android:textAllCaps="false"
+                    android:background="@drawable/bg_btn_glass"
+                    android:stateListAnimator="@null" />
+
+                <TextView
+                    android:id="@+id/tvSongName"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="هنوز آهنگی انتخاب نشده"
+                    android:textColor="#B3FFFFFF" android:textSize="16sp"
+                    android:ellipsize="middle" android:singleLine="true" />
+
+                <EditText
+                    android:id="@+id/etMessage"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:minHeight="120dp" android:gravity="top|start"
+                    android:padding="16dp"
+                    android:hint="متن مخفی را بنویس..."
+                    android:textColorHint="#80FFFFFF" android:textColor="#FFFFFF"
+                    android:textSize="20sp" android:inputType="textMultiLine"
+                    android:background="@drawable/bg_input" />
+
+                <TextView
+                    android:id="@+id/tvCounter"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#B3FFFFFF" android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_glass">
+
+                <TextView
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="یا به‌جای متن، یک عکس مخفی بفرست" android:textColor="#FFFFFF"
+                    android:textSize="16sp" android:layout_marginBottom="10dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnPickImage"
+                    android:layout_width="match_parent" android:layout_height="56dp"
+                    android:text="📷  انتخاب عکس" android:textColor="#FFFFFF"
+                    android:textSize="18sp" android:textAllCaps="false"
+                    android:background="@drawable/bg_btn_glass"
+                    android:stateListAnimator="@null" />
+
+                <LinearLayout
+                    android:id="@+id/imagePreviewRow"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginTop="12dp" android:visibility="gone">
+                    <ImageView
+                        android:id="@+id/imgPreview"
+                        android:layout_width="64dp" android:layout_height="64dp"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="پیش‌نمایش عکس" />
+                    <TextView
+                        android:id="@+id/tvImageInfo"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginStart="12dp"
+                        android:textColor="#B3FFFFFF" android:textSize="14sp" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnRemoveImage"
+                        android:layout_width="wrap_content" android:layout_height="40dp"
+                        android:text="حذف" android:textColor="#FFFFFF"
+                        android:textSize="14sp" android:textAllCaps="false"
+                        android:background="@drawable/bg_btn_danger"
+                        android:stateListAnimator="@null"
+                        android:minWidth="0dp" android:paddingStart="16dp" android:paddingEnd="16dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_glass">
+
+                <CheckBox
+                    android:id="@+id/cbEncrypt"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="🔒  رمزنگاری قوی (AES-256) فعال"
+                    android:textColor="#FFFFFF" android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:checked="true"
+                    android:buttonTint="#00E5FF" />
+
+                <EditText
+                    android:id="@+id/etPassphrase"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="14dp"
+                    android:hint="رمز عبور مشترک (هر دو گوشی باید یکی باشد)"
+                    android:textColorHint="#80FFFFFF" android:textColor="#FFFFFF"
+                    android:textSize="16sp" android:inputType="textPassword"
+                    android:background="@drawable/bg_input" />
+
+                <TextView
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="این رمز را فقط حضوری یا از راه دیگری به گیرنده بگو، نه داخل همین آهنگ."
+                    android:textColor="#80FFFFFF" android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_glass">
+                <TextView
+                    android:id="@+id/tvPower"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF" android:textSize="16sp" />
+                <SeekBar
+                    android:id="@+id/seekPower"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:progressTint="#00E5FF" android:thumbTint="#FFFFFF" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="22dp">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSend"
+                    android:layout_width="match_parent" android:layout_height="68dp"
+                    android:text="شروع ارسال" android:textColor="#FFFFFF"
+                    android:textSize="22sp" android:textStyle="bold" android:textAllCaps="false"
+                    android:background="@drawable/bg_btn_primary"
+                    android:stateListAnimator="@null" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnStop"
+                    android:layout_width="match_parent" android:layout_height="68dp"
+                    android:text="■  توقف" android:textColor="#FFFFFF"
+                    android:textSize="22sp" android:textStyle="bold" android:textAllCaps="false"
+                    android:background="@drawable/bg_btn_danger"
+                    android:stateListAnimator="@null"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="22dp" android:padding="18dp"
+                android:gravity="center_vertical" android:orientation="horizontal"
+                android:background="@drawable/bg_glass">
+                <View
+                    android:id="@+id/pulse"
+                    android:layout_width="28dp" android:layout_height="28dp"
+                    android:layout_marginEnd="14dp"
+                    android:background="@drawable/bg_pulse" />
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="آماده"
+                    android:textColor="#FFFFFF" android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

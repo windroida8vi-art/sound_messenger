@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app"
+    android:keepScreenOn="true">
+
+
+    <View android:layout_width="320dp" android:layout_height="320dp"
+        android:layout_gravity="top|start" android:layout_marginTop="-90dp" android:layout_marginStart="-100dp"
+        android:background="@drawable/bg_blob_cyan" />
+    <View android:layout_width="360dp" android:layout_height="360dp"
+        android:layout_gravity="bottom|end" android:layout_marginBottom="-120dp" android:layout_marginEnd="-120dp"
+        android:background="@drawable/bg_blob_purple" />
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" android:padding="20dp">
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="🎧  گیرنده" android:textColor="#FFFFFF"
+            android:textSize="28sp" android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/etPassphrase"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:hint="🔒 رمز عبور مشترک (برای پیام‌های رمزنگاری‌شده)"
+            android:textColorHint="#80FFFFFF" android:textColor="#FFFFFF"
+            android:textSize="16sp" android:inputType="textPassword"
+            android:background="@drawable/bg_input"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:padding="18dp" android:gravity="center_vertical"
+            android:orientation="horizontal" android:background="@drawable/bg_glass">
+            <View
+                android:id="@+id/pulse"
+                android:layout_width="28dp" android:layout_height="28dp"
+                android:layout_marginEnd="14dp"
+                android:background="@drawable/bg_pulse" />
+            <TextView
+                android:id="@+id/tvState"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="برای شروع، دکمه شنیدن را بزن"
+                android:textColor="#FFFFFF" android:textSize="18sp" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="10dp"
+            android:layout_marginTop="16dp"
+            android:max="100" android:progress="0"
+            android:progressDrawable="@drawable/progress_glass" />
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" android:layout_marginTop="16dp"
+            android:orientation="vertical" android:padding="20dp"
+            android:background="@drawable/bg_glass">
+            <TextView
+                android:id="@+id/tvBadge"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="16sp" android:textStyle="bold"
+                android:layout_marginBottom="10dp" />
+            <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:gravity="center_horizontal">
+                    <TextView
+                        android:id="@+id/tvResult"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textColor="#FFFFFF" android:textSize="26sp"
+                        android:lineSpacingMultiplier="1.2"
+                        android:textIsSelectable="true"
+                        android:hint="متن یا عکس دریافتی اینجا زنده نمایش داده می‌شود"
+                        android:textColorHint="#66FFFFFF" />
+                    <ImageView
+                        android:id="@+id/imgResult"
+                        android:layout_width="match_parent" android:layout_height="260dp"
+                        android:layout_marginTop="10dp"
+                        android:scaleType="fitCenter"
+                        android:visibility="gone"
+                        android:contentDescription="عکس دریافتی" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCopy"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:layout_marginTop="14dp"
+            android:text="کپی متن" android:textColor="#FFFFFF"
+            android:textSize="18sp" android:textAllCaps="false"
+            android:background="@drawable/bg_btn_glass"
+            android:stateListAnimator="@null" android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSaveImage"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:layout_marginTop="14dp"
+            android:text="ذخیره عکس در گالری" android:textColor="#FFFFFF"
+            android:textSize="18sp" android:textAllCaps="false"
+            android:background="@drawable/bg_btn_glass"
+            android:stateListAnimator="@null" android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRetryDecrypt"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:layout_marginTop="14dp"
+            android:text="🔓  تلاش دوباره با این رمز" android:textColor="#FFFFFF"
+            android:textSize="18sp" android:textAllCaps="false"
+            android:background="@drawable/bg_btn_glass"
+            android:stateListAnimator="@null" android:visibility="gone" />
+
+        <FrameLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="14dp">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnListen"
+                android:layout_width="match_parent" android:layout_height="68dp"
+                android:text="شروع شنیدن" android:textColor="#FFFFFF"
+                android:textSize="22sp" android:textStyle="bold" android:textAllCaps="false"
+                android:background="@drawable/bg_btn_primary"
+                android:stateListAnimator="@null" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnStop"
+                android:layout_width="match_parent" android:layout_height="68dp"
+                android:text="■  توقف" android:textColor="#FFFFFF"
+                android:textSize="22sp" android:textStyle="bold" android:textAllCaps="false"
+                android:background="@drawable/bg_btn_danger"
+                android:stateListAnimator="@null" android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

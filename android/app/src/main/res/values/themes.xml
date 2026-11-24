@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.HiddenAudio" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_app</item>
+        <item name="android:statusBarColor">#0B1026</item>
+        <item name="android:navigationBarColor">#0B1026</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
